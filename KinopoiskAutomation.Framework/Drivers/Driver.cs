@@ -147,7 +147,8 @@ namespace KinopoiskAutomation.Framework.Drivers
         public void SwitchToBaseWindow()
         {
             GetDriver().SwitchTo().Window(BaseWindow);
-        }        
+        }  
+              
     }
     public enum WebBrowsers
     {

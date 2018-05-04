@@ -1,4 +1,5 @@
 ﻿using Castle.DynamicProxy;
+using KinopoiskAutomation.Framework.PageObjects.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,9 @@ namespace KinopoiskAutomation.Framework.AOP
             {
                 try
                 {
-                    //((BasePage)invocation.InvocationTarget).SwitchWindow();
-                    //WebDriverWaiter.WaitForDOMLoad();
-                    //WebDriverWaiter.WaitForAjaxLoad();
+                    ((BasePage)invocation.InvocationTarget).SwitchWindow();
+                    ((BasePage)invocation.InvocationTarget).GetWaiter().WaitForDOMLoad();
+                    ((BasePage)invocation.InvocationTarget).GetWaiter().WaitForAjaxLoad();                    
                     invocation.Proceed();
                     ExecutedWithoutExeptions = true;
                 }

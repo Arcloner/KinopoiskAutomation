@@ -1,4 +1,5 @@
 ﻿using Castle.Windsor;
+using KinopoiskAutomation.Framework.PageObjects.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,9 @@ namespace KinopoiskAutomation.Framework.AOP
 {
     public class DependencyResolver
     {
-        private IWindsorContainer _container;
+        private static IWindsorContainer _container;
 
-        //Initialize the container
-        public DependencyResolver()
+        static DependencyResolver()
         {
             if (_container == null)
             {
@@ -22,10 +22,10 @@ namespace KinopoiskAutomation.Framework.AOP
         }
 
         //Resolve types
-        public T For<T>(Guid DriverKey)
+        public static T For<T>(Guid DriverKey)
         {
             Dictionary<string, object> arguments = new Dictionary<string, object>();
-            arguments.Add("DriverKey", DriverKey);
+            arguments.Add("DriverKey", DriverKey);            
             return _container.Resolve<T>(arguments);
         }
     }

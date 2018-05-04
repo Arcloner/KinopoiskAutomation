@@ -1,10 +1,8 @@
-﻿using Castle.MicroKernel;
+﻿using Castle.Core;
+using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using KinopoiskAutomation.Framework.PageObjects;
+using KinopoiskAutomation.Framework.PageObjects.Interfaces;
 
 namespace KinopoiskAutomation.Framework.AOP
 {
@@ -18,10 +16,11 @@ namespace KinopoiskAutomation.Framework.AOP
 
 
             //Pages
-            //kernel.Register(
-            //    Component.For<IStartPage>()
-            //             .ImplementedBy<StartPage>()
-            //             .Interceptors(InterceptorReference.ForType<PageLoggingInterceptor>()).Anywhere);           
+            kernel.Register(
+            Component.For<IStartPage>()
+                     .ImplementedBy<StartPage>()
+                     .Interceptors(InterceptorReference.ForType<PageLoggingInterceptor>()).Anywhere);
+
         }
     }
 }
