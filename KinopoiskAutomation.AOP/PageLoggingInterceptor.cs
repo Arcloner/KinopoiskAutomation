@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinopoiskAutomation.Framework.AOP
+namespace KinopoiskAutomation.AOP
 {
     public class PageLoggingInterceptor : IInterceptor
     {
@@ -19,7 +19,7 @@ namespace KinopoiskAutomation.Framework.AOP
                 {
                     ((BasePage)invocation.InvocationTarget).SwitchWindow();
                     ((BasePage)invocation.InvocationTarget).GetWaiter().WaitForDOMLoad();
-                    ((BasePage)invocation.InvocationTarget).GetWaiter().WaitForAjaxLoad();                    
+                    ((BasePage)invocation.InvocationTarget).GetWaiter().WaitForAjaxLoad();
                     invocation.Proceed();
                     ExecutedWithoutExeptions = true;
                 }

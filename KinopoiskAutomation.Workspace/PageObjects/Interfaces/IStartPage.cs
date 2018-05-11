@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinopoiskAutomation.Framework.PageObjects.Interfaces
+namespace KinopoiskAutomation.Workspace.PageObjects.Interfaces
 {
     public interface IStartPage
     {

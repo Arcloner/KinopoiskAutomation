@@ -1,17 +1,23 @@
-﻿using KinopoiskAutomation.Framework.AOP;
+﻿using KinopoiskAutomation.AOP;
 using KinopoiskAutomation.Framework.Drivers;
-using KinopoiskAutomation.Framework.Steps;
+using KinopoiskAutomation.Workspace.IoC;
+using KinopoiskAutomation.Workspace.Steps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinopoiskAutomation.Framework.Users
+namespace KinopoiskAutomation.Workspace.Users
 {
     public class Tester
     {
         private Driver driver = new Driver(WebBrowsers.Chrome);
+
+        public Tester()
+        {
+            DependencyResolver.Register(new PageObjectsRegistration());
+        }
 
         public StartPageSteps AtStartPage()
         {
