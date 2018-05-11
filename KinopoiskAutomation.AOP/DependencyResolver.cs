@@ -1,12 +1,12 @@
-﻿using Castle.Windsor;
-using KinopoiskAutomation.Framework.PageObjects.Base;
+﻿using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinopoiskAutomation.Framework.AOP
+namespace KinopoiskAutomation.AOP
 {
     public class DependencyResolver
     {
@@ -16,16 +16,20 @@ namespace KinopoiskAutomation.Framework.AOP
         {
             if (_container == null)
             {
-                _container = new WindsorContainer();
-                _container.Register(new ComponentRegistration());
+                _container = new WindsorContainer();                
             }
+        }
+
+        public static void Register(IRegistration component)
+        {
+            _container.Register(component);
         }
 
         //Resolve types
         public static T For<T>(Guid DriverKey)
         {
             Dictionary<string, object> arguments = new Dictionary<string, object>();
-            arguments.Add("DriverKey", DriverKey);            
+            arguments.Add("DriverKey", DriverKey);
             return _container.Resolve<T>(arguments);
         }
     }

@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +21,7 @@ namespace KinopoiskAutomation.Framework.Drivers
 
         private Guid driverKey;
 
-        private static readonly IDictionary<Guid, IWebDriver> Drivers = new Dictionary<Guid, IWebDriver>();
+        private static readonly IDictionary<Guid, RemoteWebDriver> Drivers = new Dictionary<Guid, RemoteWebDriver>();
 
         public Driver(WebBrowsers browser)
         {
@@ -35,7 +36,7 @@ namespace KinopoiskAutomation.Framework.Drivers
             return driverKey;
         }
 
-        public IWebDriver GetDriver()
+        public RemoteWebDriver GetDriver()
         {
             if (Drivers[driverKey] == null)
             {
@@ -44,7 +45,7 @@ namespace KinopoiskAutomation.Framework.Drivers
             return Drivers[driverKey];
         }
 
-        public static IWebDriver GetDriver(Guid key)
+        public static RemoteWebDriver GetDriver(Guid key)
         {
             if (Drivers[key] == null)
             {
@@ -53,7 +54,7 @@ namespace KinopoiskAutomation.Framework.Drivers
             return Drivers[key];
         }
 
-        public void SetDriver(IWebDriver driver)
+        public void SetDriver(RemoteWebDriver driver)
         {
             if (Drivers[driverKey] == null)
             {
@@ -62,7 +63,7 @@ namespace KinopoiskAutomation.Framework.Drivers
             Drivers[driverKey] = driver;
         }
 
-        public void SetDriver(IWebDriver driver, Guid key)
+        public void SetDriver(RemoteWebDriver driver, Guid key)
         {
             if (Drivers[key] == null)
             {

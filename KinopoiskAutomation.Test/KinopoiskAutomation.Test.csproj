@@ -38,6 +38,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -56,13 +59,13 @@
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KinopoiskAutomation.Framework\KinopoiskAutomation.Framework.csproj">
-      <Project>{8F7E4023-AE1D-4067-9ED5-C8B50D8DEAB2}</Project>
-      <Name>KinopoiskAutomation.Framework</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\KinopoiskAutomation.Workspace\KinopoiskAutomation.Workspace.csproj">
+      <Project>{334b8b64-2ab2-47a0-9011-e082dae3af32}</Project>
+      <Name>KinopoiskAutomation.Workspace</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

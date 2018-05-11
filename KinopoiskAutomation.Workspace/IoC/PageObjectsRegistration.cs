@@ -1,12 +1,13 @@
 ﻿using Castle.Core;
 using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
-using KinopoiskAutomation.Framework.PageObjects;
-using KinopoiskAutomation.Framework.PageObjects.Interfaces;
+using KinopoiskAutomation.AOP;
+using KinopoiskAutomation.Workspace.PageObjects;
+using KinopoiskAutomation.Workspace.PageObjects.Interfaces;
 
-namespace KinopoiskAutomation.Framework.AOP
+namespace KinopoiskAutomation.Workspace.IoC
 {
-    public class ComponentRegistration : IRegistration
+    public class PageObjectsRegistration: IRegistration
     {
         public void Register(IKernelInternal kernel)
         {
