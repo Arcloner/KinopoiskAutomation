@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 namespace KinopoiskAutomation.Framework.Drivers
 {
     public class Driver
-    {        
+    {
+        private readonly string baseUrl = "https://www.kinopoisk.ru/";
 
         string BaseWindow;
 
@@ -28,7 +29,7 @@ namespace KinopoiskAutomation.Framework.Drivers
             this.browser = browser;
             InitBrowser(browser);
             BaseWindow = GetDriver().CurrentWindowHandle;
-            //LoadApplication()
+            GoToStartPage();
         }
 
         public Guid GetDriverKey()
@@ -72,10 +73,10 @@ namespace KinopoiskAutomation.Framework.Drivers
             Drivers[key] = driver;
         }
 
-        //private void LoadApplication()
-        //{
-        //    GetDriver.Url = FrameworkConstants.StartPage;
-        //}
+        public void GoToStartPage()
+        {
+            GoToUrl(baseUrl);
+        }
 
         public void GoToUrl(string url)
         {

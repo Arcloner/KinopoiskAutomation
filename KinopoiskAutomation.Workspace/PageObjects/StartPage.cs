@@ -1,10 +1,8 @@
-﻿using KinopoiskAutomation.Framework.PageObjects.Base;
+﻿using KinopoiskAutomation.Framework.Drivers;
+using KinopoiskAutomation.Framework.PageObjects.Base;
 using KinopoiskAutomation.Workspace.PageObjects.Interfaces;
+using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KinopoiskAutomation.Workspace.PageObjects
 {
@@ -12,9 +10,18 @@ namespace KinopoiskAutomation.Workspace.PageObjects
     {
         public StartPage(Guid DriverKey) : base(DriverKey){}
 
-        public void ClickSignIn()
+        private IWebElement searchInput => Driver.GetDriver(DriverKey).FindElementByXPath("//div[contains(@class,'head')]/input[@placeholder]");
+
+        private IWebElement searchButton => Driver.GetDriver(DriverKey).FindElementByXPath("//div[contains(@class,'head')]//button[contains(@class,'search')]");
+
+        public void ClickSearchButton()
         {
-            throw new NotImplementedException();
+            searchButton.Click();
+        }
+
+        public void SendKeysToSearchInput(string keys)
+        {
+            searchInput.SendKeys(keys);
         }
     }
 }

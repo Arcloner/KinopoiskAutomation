@@ -20,8 +20,7 @@ namespace KinopoiskAutomation.Framework.PageObjects.Base
         {
             this.DriverKey = DriverKey;
             webDriverWaiter = new WebDriverWaiter(Driver.GetDriver(DriverKey));
-            Perform = new Actions(Driver.GetDriver(DriverKey),webDriverWaiter);
-            PageFactory.InitElements(Driver.GetDriver(DriverKey), this);
+            Perform = new Actions(Driver.GetDriver(DriverKey),webDriverWaiter);            
         }
 
         public WebDriverWaiter GetWaiter()

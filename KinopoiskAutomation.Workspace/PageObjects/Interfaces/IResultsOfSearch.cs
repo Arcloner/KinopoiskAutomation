@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KinopoiskAutomation.Workspace.PageObjects.Interfaces
 {
-    public interface IStartPage
+    public interface IResultsOfSearch
     {
-        void SendKeysToSearchInput(string keys);
-        void ClickSearchButton();
+        void ClickSearchedFilm();
+        string GetTextOfSearchedFilm();
     }
 }
