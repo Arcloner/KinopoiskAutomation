@@ -16,11 +16,16 @@ namespace KinopoiskAutomation.Workspace.IoC
                     .ImplementedBy<PageLoggingInterceptor>());
 
 
-            //Pages
+            //Pages registration
             kernel.Register(
             Component.For<IStartPage>()
                      .ImplementedBy<StartPage>()
                      .Interceptors(InterceptorReference.ForType<PageLoggingInterceptor>()).Anywhere);
+
+            kernel.Register(
+           Component.For<IResultsOfSearch>()
+                    .ImplementedBy<ResultsOfSearch>()
+                    .Interceptors(InterceptorReference.ForType<PageLoggingInterceptor>()).Anywhere);
 
         }
     }

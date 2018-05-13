@@ -14,7 +14,6 @@ namespace KinopoiskAutomation.Framework.Drivers
 {
     public class Driver
     {        
-
         string BaseWindow;
 
         private WebBrowsers browser;
@@ -27,8 +26,7 @@ namespace KinopoiskAutomation.Framework.Drivers
         {
             this.browser = browser;
             InitBrowser(browser);
-            BaseWindow = GetDriver().CurrentWindowHandle;
-            //LoadApplication()
+            BaseWindow = GetDriver().CurrentWindowHandle;            
         }
 
         public Guid GetDriverKey()
@@ -71,11 +69,6 @@ namespace KinopoiskAutomation.Framework.Drivers
             }
             Drivers[key] = driver;
         }
-
-        //private void LoadApplication()
-        //{
-        //    GetDriver.Url = FrameworkConstants.StartPage;
-        //}
 
         public void GoToUrl(string url)
         {
