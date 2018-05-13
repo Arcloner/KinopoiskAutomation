@@ -23,5 +23,20 @@ namespace KinopoiskAutomation.Workspace.Users
         {
             return new StartPageSteps(driver.GetDriverKey());
         }
+
+        public ResultsOfSearchSteps AtResultsOfSearchPage()
+        {
+            return new ResultsOfSearchSteps(driver.GetDriverKey()); 
+        }
+
+        public void GoToPage(string url)
+        {
+            driver.GoToUrl(url);
+        }
+
+        public void FinishesWork()
+        {
+            driver.CloseDriver();
+        }
     }
 }

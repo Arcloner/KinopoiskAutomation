@@ -16,5 +16,11 @@ namespace KinopoiskAutomation.Workspace.Steps
         {
             startPage = DependencyResolver.For<IStartPage>(driverId);
         }
+
+        public void SearchFilm(string filmName)
+        {
+            startPage.SendKeysToSearchInput(filmName);
+            startPage.ClickSearchButton();
+        }
     }
 }

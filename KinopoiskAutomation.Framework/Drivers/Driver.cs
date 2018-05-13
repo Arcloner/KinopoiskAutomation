@@ -13,9 +13,7 @@ using System.Threading.Tasks;
 namespace KinopoiskAutomation.Framework.Drivers
 {
     public class Driver
-    {
-        private readonly string baseUrl = "https://www.kinopoisk.ru/";
-
+    {        
         string BaseWindow;
 
         private WebBrowsers browser;
@@ -28,8 +26,7 @@ namespace KinopoiskAutomation.Framework.Drivers
         {
             this.browser = browser;
             InitBrowser(browser);
-            BaseWindow = GetDriver().CurrentWindowHandle;
-            GoToStartPage();
+            BaseWindow = GetDriver().CurrentWindowHandle;            
         }
 
         public Guid GetDriverKey()
@@ -71,11 +68,6 @@ namespace KinopoiskAutomation.Framework.Drivers
                 throw new NullReferenceException("The WebDriver browser instance was not initialized. You should first call the method InitBrowser or create class by constructor.");
             }
             Drivers[key] = driver;
-        }
-
-        public void GoToStartPage()
-        {
-            GoToUrl(baseUrl);
         }
 
         public void GoToUrl(string url)
